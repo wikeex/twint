@@ -216,7 +216,8 @@ async def User(username, config, conn, user_id=False):
         'x-guest-token': config.Guest_token,
     }
     try:
-        response = await Request(_url, headers=_headers)
+        _connector = get_connector(config)
+        response = await Request(_url, _connector, headers=_headers)
         j_r = loads(response)
         if user_id:
             try:

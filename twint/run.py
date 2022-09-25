@@ -1,15 +1,15 @@
-import sys, os, datetime
+import datetime
+import logging as logme
+import os
+import sys
+import time
 from asyncio import get_event_loop, TimeoutError, ensure_future, new_event_loop, set_event_loop
 
 from . import datelock, feed, get, output, verbose, storage
-from .token import TokenExpiryException
 from . import token
-from .storage import db
 from .feed import NoMoreTweetsException
-
-import logging as logme
-
-import time
+from .storage import db
+from .token import TokenExpiryException
 
 bearer = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs' \
          '%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA'
